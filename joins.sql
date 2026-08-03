@@ -44,3 +44,65 @@ from tbl_customer as c
 join tbl_orders as o
 ON c.customer_id=o.customer_id
 WHERE c.customer_name LIKE "A%";
+
+
+select o.order_id,p.product_name,od.product_quantity
+from tbl_orders as o
+join tbl_order_details as od
+on o.order_id=od.order_id
+join tbl_product as p 
+on od.product_id=p.product_id
+order by o.order_id asc;
+
+select customer_name,product_name,
+order_date
+from tbl_orders as o
+join tbl_customer as c
+on o.customer_id=c.customer_id 
+join tbl_order_details as od 
+on order_id =od.order_id 
+join tbl_product as p 
+on p.product_id = od.product_id;
+
+
+
+
+
+select o.order_d,p.product_name,od.product_stock
+from tbl_orders as o
+join tbl_order_details as od
+on o.order_id=od.order_id
+join tbl_product as p
+on od.product_id=p.product_id
+order by o.order_id asc;
+
+
+select o.order_id ,p.product_name,
+p.product_stock,
+od.product_quantity
+from tbl_orders as o
+join tbl_order_details as od
+on o.order_id =od.order_id
+join tbl_product as p
+on od.product_id =p.product_id 
+order by o.order_id asc;
+
+
+select customer_name ,product_name ,order_date 
+from tbl_orders as o
+join tbl_customer as c
+on o. customer_id =c.customer_id
+join tbl_order_details as od 
+on o.order_id =od.order_id
+join tbl_product as p
+on p.product_id=od.product_id;
+
+select customer_name,customer_email,order_status,product_quantity,product_stock
+from tbl_customer as c
+join tbl_orders as o
+on c.customer_id=o.customer_id
+join tbl_order_details as od
+on od.order_id=c.customer_id
+join tbl_product as p
+on p.product_id=od.product_id
+order by c.customer_id desc;
